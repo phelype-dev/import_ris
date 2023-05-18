@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model exames_ris {
+  UNIDADE                String
+  TIPO                   String
+  NOME_PACIENTE          String
+  DATA_NASC              DateTime @db.Date
+  SEXO                   String
+  CONVENIO               String
+  PRONTUARIO             Int      @db.Integer
+  ACCESSION_NUMBER       String   @id
+  PASSAGEM               Int      @db.Integer
+  ESPECIALIDADE          String
+  MODALIDADE             String
+  MODALIDADE_CORRIGIDA   String
+  PROCEDIMENTO           String
+  DEP                    String
+  DESCRICAO_SALA         String
+  BR_SALA_EXECUCAO       String
+  SETOR                  String
+  STATUS                 String
+  NOHOSPITAL             DateTime @db.Timestamp()
+  PROCINI                DateTime @db.Timestamp()
+  AQUIFIM                DateTime @db.Timestamp()
+  PROCFIM                DateTime @db.Timestamp()
+  ASSINAT1               DateTime @db.Timestamp()
+  ASSINAT2               DateTime @db.Timestamp()
+  MEDICO_LAUDANTE        String
+  MEDICO_LAUDANTE1ASS    String
+  MEDICOSOLICITANTE      String
+  AUXILIAR               String
+  ENFERMEIRO             String
+  TECNICO_BIOMEDICO      String
+  TECNICO_BIOMEDICO2     String
+  PR_QUALIDADE           String
+  PR_DOC_QUEST           String
+  PR_ERR_TEC             String
+  PR_ERR_PROT            String
+  PR_FALT_SEQ            String
+  PR_OUTRO               String
+  PR_PREENCHIMENTO       String
+  PR_TECNICO_NOTE        String   @db.Text
+  BR_OBSERVACAO_TECNICO  String   @db.Text
+  ACHADOS_INCIDENTAIS    String   @db.Text
+  COMENTARIO_ACHADO      String   @db.Text
+  SITUACAO_ESPECIAL      String   @db.Text
+  CONDUTA                String   @db.Text
+  VIP                    String
+  NOTORIO_AUTORIZADO_POR String
+}
